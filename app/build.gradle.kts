@@ -37,6 +37,11 @@ android {
 
 dependencies {
 
+    //graficos
+    implementation(libs.mpandroidchart)
+    implementation(libs.androidx.gridlayout)
+
+    //core y por defecto
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

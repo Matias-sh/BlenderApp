@@ -1,12 +1,258 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:id="@+id/main"
+    android:background="@color/formosa_celeste">
 
-    
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/formosa_azul"
+        android:elevation="4dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Blender Médico"
+                android:textColor="@color/white"
+                android:textSize="20sp"/>
+
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:src="@drawable/logo_gob_todos_unidos_trans"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Panel Principal de Mediciones -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Medición en Tiempo Real"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/formosa_azul"/>
+
+                    <!-- Medidor Circular de Mezcla -->
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/medidor_mezcla"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="16dp"
+                        app:indicatorSize="200dp"
+                        app:trackThickness="16dp"/>
+
+                    <TextView
+                        android:id="@+id/texto_porcentaje_mezcla"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="24sp"
+                        android:text="50% O₂ / 50% Aire"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Panel de Estadísticas -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="2"
+                    android:padding="16dp">
+
+                    <!-- Flujo de Oxígeno -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Flujo O₂"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/valor_flujo_oxigeno"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:text="15 L/min"/>
+                    </LinearLayout>
+
+                    <!-- Flujo de Aire -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Flujo Aire"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/valor_flujo_aire"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:text="15 L/min"/>
+                    </LinearLayout>
+
+                    <!-- Presión -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Presión"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/valor_presion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:text="50 PSI"/>
+                    </LinearLayout>
+
+                    <!-- Temperatura -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Temperatura"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/valor_temperatura"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:text="25°C"/>
+                    </LinearLayout>
+                </GridLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Panel de Controles -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Controles"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/formosa_azul"
+                        android:layout_marginBottom="16dp"/>
+
+                    <!-- Control de Mezcla -->
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/control_mezcla"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:valueFrom="21"
+                        android:valueTo="100"
+                        android:stepSize="1"/>
+
+                    <!-- Botones de Control -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/boton_iniciar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Iniciar"
+                            android:layout_marginEnd="8dp"
+                            app:backgroundTint="@color/formosa_verde"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/boton_detener"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Detener"
+                            android:layout_marginStart="8dp"
+                            app:backgroundTint="@color/formosa_rojo"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Colores oficiales de Formosa -->
+    <color name="formosa_azul">#003366</color>
+    <color name="formosa_celeste">#E6F3FF</color>
+    <color name="formosa_verde">#4CAF50</color>
+    <color name="formosa_rojo">#D32F2F</color>
 </resources>
