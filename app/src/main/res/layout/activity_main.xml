@@ -41,17 +41,18 @@
             <!-- Tarjeta 1: Caudal Set -->
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:layout_columnWeight="1"
-                android:background="@color/white"
                 android:padding="16dp"
                 app:cardCornerRadius="8dp"
+                android:background="@drawable/bg_danger"
                 app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
+                    android:layout_margin="10dp"
                     android:orientation="vertical">
 
                     <ImageView
