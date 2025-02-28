@@ -11,6 +11,8 @@ activity = "1.9.3"
 constraintlayout = "2.2.0"
 philjayV = "3.1.0"
 gridlayout = "1.0.0"
+google_services_v = "4.4.2"
+firebasebomV = "33.9.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -23,8 +25,11 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 mpandroidchart = { group = "com.github.PhilJay", name = "MPAndroidChart", version.ref = "philjayV" }
 androidx-gridlayout = { group = "androidx.gridlayout", name = "gridlayout", version.ref = "gridlayout" }
+firebase-bom = { group = "com.google.firebase:firebase-bom", name = "firebasebom", version.ref = "firebasebomV" }
+firebase-analytics = { group = "com.google.firebase:firebase-analytics", name = "firebaseanalytics" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+google-services = { id = "com.google.gms.google-services", version.ref = "google_services_v" }
 
